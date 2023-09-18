@@ -21,8 +21,8 @@ import {
 
 export default function Login() {
     return (
-    <div className="grid grid-cols-5">
-        <div className="place-items-center">
+    <div className="flex justify-center basis-1/5 h-screen items-center">
+        <div className="">
         <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Create an account</CardTitle>
