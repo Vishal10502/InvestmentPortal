@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import React from "react"
 import { cn } from "@/lib/utils"
-import { Link } from "@radix-ui/react-navigation-menu"
+import Link from "next/link"
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import { Icons } from "@/components/ui/icons"
 import {
@@ -18,11 +18,9 @@ import {
   } from "@/components/ui/card"
 
 
-
 export default function Login() {
     return (
     <div className="flex justify-center basis-1/5 h-screen items-center">
-        <div className="">
         <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Create an account</CardTitle>
@@ -32,14 +30,14 @@ export default function Login() {
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-6">
-            <Button variant="outline">
+          <Link href="/registergithub" className="flex justify-center"><Button variant="outline" className="px-10">
               <Icons.gitHub className="mr-2 h-4 w-4" />
               Github
-            </Button>
-            <Button variant="outline">
+            </Button></Link>
+            <Link href="/registergoogle" className="flex justify-center"><Button variant="outline" className="px-10">
               <Icons.google className="mr-2 h-4 w-4" />
               Google
-            </Button>
+            </Button></Link>
           </div>
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
@@ -64,7 +62,6 @@ export default function Login() {
           <Button className="w-full">Create account</Button>
         </CardFooter>
       </Card>
-      </div>
     </div>
     )
   }
