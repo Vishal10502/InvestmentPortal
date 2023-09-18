@@ -19,7 +19,6 @@ import {
 
 
 
-// git 
 export default function Login() {
     return (
     <div className="grid grid-cols-5">
