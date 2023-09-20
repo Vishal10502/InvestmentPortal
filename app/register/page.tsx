@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
 import { buttonVariants } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -19,19 +18,19 @@ import {
   } from "@/components/ui/card"
 
 
-export default function Login() {
+export default function register() {
     return (
     <div className="flex justify-center basis-1/5 h-screen items-center">
         <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Create an account</CardTitle>
+          <CardTitle className="text-2xl">Log-in to your account</CardTitle>
           <CardDescription>
-            Enter your email below to create your account
+            Enter your email & Password below to Log-in
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-6">
-          <Link href="/register" className="flex justify-center"><Button variant="outline" className="px-10">
+          <Link href="/registergithub" className="flex justify-center"><Button variant="outline" className="px-10">
               <Icons.gitHub className="mr-2 h-4 w-4" />
               Github
             </Button></Link>
@@ -60,7 +59,7 @@ export default function Login() {
           </div>
         </CardContent>
         <CardFooter>
-          <Link className="w-full" href="/register"><Button className="w-full">Create account</Button></Link>
+          <Button className="w-full">Login</Button>
         </CardFooter>
       </Card>
     </div>
