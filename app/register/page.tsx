@@ -1,27 +1,26 @@
-import { Button } from "@/components/ui/button"
-import { buttonVariants } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { toast } from "@/components/ui/use-toast"
-import React from "react"
-import { cn } from "@/lib/utils"
-import Link from "next/link"
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
-import { Icons } from "@/components/ui/icons"
+import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/components/ui/use-toast";
+import React from "react";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { Icons } from "@/components/ui/icons";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from "@/components/ui/card"
-
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function register() {
-    return (
+  return (
     <div className="flex justify-center basis-1/5 h-screen items-center">
-        <Card>
+      <Card>
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">Log-in to your account</CardTitle>
           <CardDescription>
@@ -30,14 +29,18 @@ export default function register() {
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid grid-cols-2 gap-6">
-          <Link href="/registergithub" className="flex justify-center"><Button variant="outline" className="px-10">
-              <Icons.gitHub className="mr-2 h-4 w-4" />
-              Github
-            </Button></Link>
-            <Link href="/registergoogle" className="flex justify-center"><Button variant="outline" className="px-10">
-              <Icons.google className="mr-2 h-4 w-4" />
-              Google
-            </Button></Link>
+            <Link href="/registergithub" className="flex justify-center">
+              <Button variant="outline" className="px-10">
+                <Icons.gitHub className="mr-2 h-4 w-4" />
+                Github
+              </Button>
+            </Link>
+            <Link href="/registergoogle" className="flex justify-center">
+              <Button variant="outline" className="px-10">
+                <Icons.google className="mr-2 h-4 w-4" />
+                Google
+              </Button>
+            </Link>
           </div>
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
@@ -63,8 +66,5 @@ export default function register() {
         </CardFooter>
       </Card>
     </div>
-    )
-  }
-
-
-
+  );
+}

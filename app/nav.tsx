@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import * as React from "react";
+import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/ui/icons"
+import { cn } from "@/lib/utils";
+import { Icons } from "@/components/ui/icons";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,7 +14,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -53,7 +52,7 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
-]
+];
 
 const listitems: { title: string; href: string; description: string }[] = [
   {
@@ -77,102 +76,110 @@ const listitems: { title: string; href: string; description: string }[] = [
   {
     title: "Properietary firms/Businesses",
     href: "/docs/Properietaryfirms",
-    description: "IBD-registered representatives who work with IncedoInvest gain access to a spectrum of innovative technologies, services.",
-  }
-]
+    description:
+      "IBD-registered representatives who work with IncedoInvest gain access to a spectrum of innovative technologies, services.",
+  },
+];
 
 export default function NavigationMenuDemo() {
   return (
-<div className="grid"><NavigationMenu className="top-2"> 
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>IncedoInvest</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/"
-                  >
-                    
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      <img src="https://cdn.dribbble.com/userupload/6884687/file/original-b4e0e2da90ff1c45702e9fc52e3796ad.jpg?resize=400x0"></img>
-                      IncedoInvest
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                      You can have all your investment solutions, at IncedoInvest so Let's Start..
-                    </p>
-                  </a>
-                </NavigationMenuLink>
-              </li>
-              <ListItem href="/docs" title="Portfolio">
-                Your Customized portfolio, with recommendation system.
-              </ListItem>
-              <ListItem href="/docs/installation" title="CryptoCurrency (New*)">
-                Invest in the future of NFT's and Crypto via IncedoInvest.
-              </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Terms & Conditions">
-                IncedoInvest respect your privacy and rights, Read T&C
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-        <NavigationMenuTrigger>Who We Serve</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {listitems.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/investorrelation" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Investor Relations
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        
+    <div className="grid">
+      <NavigationMenu className="top-2">
+        <NavigationMenuList>
           <NavigationMenuItem>
-          <Link href="/incedoinvest" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              About IncedoInvest
-            </NavigationMenuLink>
-          </Link>
+            <NavigationMenuTrigger>IncedoInvest</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                <li className="row-span-3">
+                  <NavigationMenuLink asChild>
+                    <a
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      href="/"
+                    >
+                      <div className="mb-2 mt-4 text-lg font-medium">
+                        <img src="https://cdn.dribbble.com/userupload/6884687/file/original-b4e0e2da90ff1c45702e9fc52e3796ad.jpg?resize=400x0"></img>
+                        IncedoInvest
+                      </div>
+                      <p className="text-sm leading-tight text-muted-foreground">
+                        You can have all your investment solutions, at
+                        IncedoInvest so Let's Start..
+                      </p>
+                    </a>
+                  </NavigationMenuLink>
+                </li>
+                <ListItem href="/docs" title="Portfolio">
+                  Your Customized portfolio, with recommendation system.
+                </ListItem>
+                <ListItem
+                  href="/docs/installation"
+                  title="CryptoCurrency (New*)"
+                >
+                  Invest in the future of NFT's and Crypto via IncedoInvest.
+                </ListItem>
+                <ListItem
+                  href="/docs/primitives/typography"
+                  title="Terms & Conditions"
+                >
+                  IncedoInvest respect your privacy and rights, Read T&C
+                </ListItem>
+              </ul>
+            </NavigationMenuContent>
           </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
-    <Avatar className="absolute right-5 top-2">
-      <AvatarImage src="https://github.com/shadcn.png" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {components.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Who We Serve</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {listitems.map((component) => (
+                  <ListItem
+                    key={component.title}
+                    title={component.title}
+                    href={component.href}
+                  >
+                    {component.description}
+                  </ListItem>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/investorrelation" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Investor Relations
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+
+          <NavigationMenuItem>
+            <Link href="/incedoinvest" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                About IncedoInvest
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      <Avatar className="absolute right-5 top-2">
+        <AvatarImage src="https://github.com/shadcn.png" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
     </div>
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
@@ -197,6 +204,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";
