@@ -83,7 +83,7 @@ const listitems: { title: string; href: string; description: string }[] = [
 
 export default function NavigationMenuDemo() {
   return (
-    <NavigationMenu className="w-full"> 
+<div className="grid"><NavigationMenu className="top-2"> 
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger>IncedoInvest</NavigationMenuTrigger>
@@ -95,7 +95,7 @@ export default function NavigationMenuDemo() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
-                    {/* <Icons.logo className="h-6 w-6" /> */}
+                    
                     <div className="mb-2 mt-4 text-lg font-medium">
                       <img src="https://cdn.dribbble.com/userupload/6884687/file/original-b4e0e2da90ff1c45702e9fc52e3796ad.jpg?resize=400x0"></img>
                       IncedoInvest
@@ -164,15 +164,14 @@ export default function NavigationMenuDemo() {
               About IncedoInvest
             </NavigationMenuLink>
           </Link>
-          <Avatar className="absolute right-0">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
           </NavigationMenuItem>
-
-        
       </NavigationMenuList>
     </NavigationMenu>
+    <Avatar className="absolute right-5 top-2">
+      <AvatarImage src="https://github.com/shadcn.png" />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+    </div>
   )
 }
 
