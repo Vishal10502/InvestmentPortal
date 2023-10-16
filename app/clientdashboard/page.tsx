@@ -3,12 +3,12 @@ import Sidebar from "./components/sidebar";
 import AccordionDemo from "./components/accordian";
 import CardDemo from "./components/notification";
 import TableDemo from "./components/clints";
-import TableDemoyes from "./components/NewClient";
-import { Separator } from "@/components/ui/separator";
 import CardDemo01 from "./components/card";
-import { SeparatorHorizontal, SeparatorHorizontalIcon } from "lucide-react";
+import TableDemoyes from "./components/NewClient";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { SeparatorHorizontal, SeparatorHorizontalIcon } from "lucide-react";
 
 const AdvisorDashboard = () => {
   return (
@@ -20,7 +20,7 @@ const AdvisorDashboard = () => {
             <TableDemoyes />
             <br />
             <CardDemo01 />
-            <Link href="/deployinvestment">
+            <Link href="/createinvestment">
               <Button className="w-full" type="submit">
                 Add Investment
               </Button>

@@ -1,7 +1,7 @@
 "use client";
-
 import * as React from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { cn } from "@/lib/utils";
@@ -84,10 +84,12 @@ const listitems: { title: string; href: string; description: string }[] = [
 export default function NavigationMenuDemo() {
   return (
     <div className="grid">
-      <NavigationMenu className="top-2">
+      <NavigationMenu className="w-full top-2 absolute left-20 top-5">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>IncedoInvest</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="hover:scale-125 transition duration-500 cursor-pointer">
+              IncedoInvest
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
@@ -102,7 +104,7 @@ export default function NavigationMenuDemo() {
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
                         You can have all your investment solutions, at
-                        IncedoInvest so Let's Start..
+                        IncedoInvest so Lets Start..
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -114,7 +116,7 @@ export default function NavigationMenuDemo() {
                   href="/docs/installation"
                   title="CryptoCurrency (New*)"
                 >
-                  Invest in the future of NFT's and Crypto via IncedoInvest.
+                  Invest in the future of NFTs and Crypto via IncedoInvest.
                 </ListItem>
                 <ListItem
                   href="/docs/primitives/typography"
@@ -126,7 +128,9 @@ export default function NavigationMenuDemo() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="hover:scale-125 transition duration-500 cursor-pointer">
+              Services
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {components.map((component) => (
@@ -142,7 +146,9 @@ export default function NavigationMenuDemo() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Who We Serve</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="hover:scale-125 transition duration-500 cursor-pointer">
+              Who We Serve
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {listitems.map((component) => (
@@ -159,22 +165,26 @@ export default function NavigationMenuDemo() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/investorrelation" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Investor Relations
-              </NavigationMenuLink>
+              <div className="hover:scale-125 transition duration-500 cursor-pointer">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Investor Relations
+                </NavigationMenuLink>
+              </div>
             </Link>
           </NavigationMenuItem>
 
           <NavigationMenuItem>
             <Link href="/incedoinvest" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                About IncedoInvest
-              </NavigationMenuLink>
+              <div className="hover:scale-125 transition duration-500 cursor-pointer">
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  About IncedoInvest
+                </NavigationMenuLink>
+              </div>
             </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <Avatar className="absolute right-5 top-2">
+      <Avatar className="absolute right-5 top-5 hover:scale-125 transition duration-500 cursor-pointer">
         <AvatarImage src="https://github.com/shadcn.png" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
