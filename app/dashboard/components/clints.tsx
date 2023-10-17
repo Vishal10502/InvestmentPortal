@@ -1,3 +1,5 @@
+"use client";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -8,94 +10,33 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const invoices = [
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Sam John",
-    paymentStatus: "Invested",
-    totalAmount: "$250.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Joey Litt",
-    paymentStatus: "Invested",
-    totalAmount: "$150.00",
-    paymentMethod: "Commodity",
-  },
-  {
-    invoice: "Harvey Spectre",
-    paymentStatus: "Invested",
-    totalAmount: "$350.00",
-    paymentMethod: "Property",
-  },
-  {
-    invoice: "Donna Polsion",
-    paymentStatus: "Invested",
-    totalAmount: "$450.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Steve Harvey",
-    paymentStatus: "Invested",
-    totalAmount: "$550.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Andrew Carl",
-    paymentStatus: "Invested",
-    totalAmount: "$200.00",
-    paymentMethod: "Stocks",
-  },
-  {
-    invoice: "Jimmy Bathe",
-    paymentStatus: "Invested",
-    totalAmount: "$300.00",
-    paymentMethod: "Stocks",
-  },
-];
+// Define an interface for your client data
+interface ClientData {
+  clientName: string;
+  status: string;
+  investmentType: string;
+  investmentAmount: number;
+}
 
 export function TableDemo() {
+  const [clientData, setClientData] = useState<ClientData[]>([]);
+
+  useEffect(() => {
+    const advisorId = localStorage.getItem("advisorId");
+
+    if (advisorId) {
+      fetch(`/api/User/AdvisorDashboard/${advisorId}`)
+        .then((response) => response.json())
+        .then((data: ClientData[]) => {
+          // Specify the type here
+          setClientData(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    }
+  }, []);
+
   return (
     <Table>
       <TableCaption>A list of your recent Clients.</TableCaption>
@@ -108,12 +49,14 @@ export function TableDemo() {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+        {clientData.map((client) => (
+          <TableRow key={client.clientName}>
+            <TableCell className="font-medium">{client.clientName}</TableCell>
+            <TableCell>{client.status}</TableCell>
+            <TableCell>{client.investmentType}</TableCell>
+            <TableCell className="text-right">
+              {client.investmentAmount}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Icons } from "@/components/ui/icons";
@@ -38,6 +40,7 @@ import {
 } from "@/components/ui/form";
 
 export default function Login() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,15 +58,38 @@ export default function Login() {
       },
     };
 
-    axios
-      .post("https://localhost:7011/api/User/Login", values, config)
-      .then((response) => {
-        console.log("Response:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-    console.log(values);
+    try {
+      const response = await axios.post(
+        "https://incedoinvest.azurewebsites.net/api/User/Login?api-version=1",
+        values,
+        config
+      );
+
+      if (response.data && response.data.token) {
+        const token = response.data.token;
+        const roleId = response.data.roleId;
+        const advisorId = response.data.advisorId;
+        const clientId = response.data.clientId;
+
+        // Store the token, roleId, advisorId, and clientId in localStorage
+        localStorage.setItem("jwtToken", token);
+        localStorage.setItem("roleId", roleId);
+        localStorage.setItem("advisorId", advisorId);
+        localStorage.setItem("clientId", clientId);
+
+        if (roleId === 1) {
+          // If roleId is 1, user is an advisor, redirect to advisor dashboard
+          router.push(`/dashboard/`);
+        } else if (roleId === 2) {
+          // If roleId is 2, user is a client, redirect to client dashboard
+          router.push(`/clientdashboard/`);
+        }
+      } else {
+        console.error("Invalid response from the server");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
   return (
     <div>
@@ -153,11 +179,9 @@ export default function Login() {
                   {/* <Button type="submit">Submit</Button> */}
                   <CardFooter>
                     <div className="w-full">
-                      <Link href="/dashboard">
-                        <Button className="w-full" type="submit">
-                          Login
-                        </Button>
-                      </Link>
+                      <Button className="w-full" type="submit">
+                        Login
+                      </Button>
                     </div>
                   </CardFooter>
                 </form>
