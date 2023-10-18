@@ -14,7 +14,7 @@ import {
 interface ClientData {
   clientName: string;
   status: string;
-  investmentType: string;
+  investementType: string;
   investmentAmount: number;
 }
 
@@ -25,7 +25,9 @@ export function TableDemo() {
     const advisorId = localStorage.getItem("advisorId");
 
     if (advisorId) {
-      fetch(`/api/User/AdvisorDashboard/${advisorId}`)
+      fetch(
+        `https://incedoinvest.azurewebsites.net/api/User/AdvisorDashboard/${advisorId}?api-version=1`
+      )
         .then((response) => response.json())
         .then((data: ClientData[]) => {
           // Specify the type here
@@ -53,7 +55,7 @@ export function TableDemo() {
           <TableRow key={client.clientName}>
             <TableCell className="font-medium">{client.clientName}</TableCell>
             <TableCell>{client.status}</TableCell>
-            <TableCell>{client.investmentType}</TableCell>
+            <TableCell>{client.investementType}</TableCell>
             <TableCell className="text-right">
               {client.investmentAmount}
             </TableCell>
